@@ -1,0 +1,4 @@
+@EndUserText.label: 'service def'
+define service ZMSTUDENT_SD {
+  expose ZMSTUDENT_I as Student_di;
+}

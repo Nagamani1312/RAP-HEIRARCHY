@@ -1,0 +1,33 @@
+managed implementation in class zbp_mstudent_i unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZMSTUDENT_I alias Student
+persistent table ZMSTUDENT_T
+draft table zmstudent_d
+lock master
+total etag Gender
+authorization master ( instance )
+etag master Gender
+{
+  create;
+  update;
+  delete;
+  field ( readonly : update ) Studentid;
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  mapping for zmstudent_tbl{
+  Studentid = studentid;
+  Class = class;
+  Firstname = firstname;
+  Lastname = lastname;
+  Gender = gender;
+  Mentor = mentor;
+
+  }
+
+}
